@@ -54,7 +54,17 @@ M.render_frame = function(grid)
   vim.api.nvim_buf_clear_namespace(buffnr, namespace, 0, -1)
   for i, row in ipairs(grid) do
     for j, cell in ipairs(row) do
-      vim.api.nvim_buf_add_highlight(buffnr, namespace, cell.hl_group or "", i - 1, j - 1, j)
+      local byte_start = vim.fn.byteidx(lines[i], j - 1)
+      local byte_end = vim.fn.byteidx(lines[i], j - 1 + vim.fn.strdisplaywidth(cell.char))
+
+      if byte_start == -1 then
+        byte_start = 0
+      end
+      if byte_end == -1 then
+        byte_end = #row
+      end
+
+      vim.api.nvim_buf_add_highlight(buffnr, namespace, cell.hl_group or "", i - 1, byte_start, byte_end)
     end
   end
   -- swap buffers
