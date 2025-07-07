@@ -6,6 +6,10 @@ M.animations = {
   make_it_rain = require("cellular-automaton.animations.make_it_rain"),
   game_of_life = require("cellular-automaton.animations.game_of_life"),
   scramble = require("cellular-automaton.animations.scramble"),
+  dissolve = require("cellular-automaton.animations.dissolve"),
+  matrix = require("cellular-automaton.animations.matrix"),
+  slide = require("cellular-automaton.animations.slide"),
+  screensaver = require("cellular-automaton.animations.screensaver"),
 }
 
 local apply_default_options = function(config)
