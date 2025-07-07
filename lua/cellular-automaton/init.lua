@@ -9,7 +9,7 @@ M.animations = {
   dissolve = require("cellular-automaton.animations.dissolve"),
   matrix = require("cellular-automaton.animations.matrix"),
   slide = require("cellular-automaton.animations.slide"),
-  screensaver = require("cellular-automaton.animations.screensaver"),
+  -- screensaver = require("cellular-automaton.animations.screensaver"),
 }
 
 local apply_default_options = function(config)
